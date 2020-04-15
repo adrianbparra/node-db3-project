@@ -32,3 +32,18 @@ join [Customer] as c
 on o.CustomerId = c.Id
 join [Employee] as e
 on o.EmployeeId = e.Id
+
+--   In [SQL Try Editor at W3Schools.com](https://www.w3schools.com/Sql/tryit.asp?filename=trysql_select_top):
+
+--   Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 8 records.
+
+SELECT CategoryName, Count(Products.ProductID) as Count FROM Categories
+JOIN Products
+ON Categories.CategoryID = Products.CategoryID
+GROUP BY CategoryName
+
+
+--   Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+
+SELECT OrderID, Quantity as ItemCount FROM [OrderDetails]
+Group By OrderID
