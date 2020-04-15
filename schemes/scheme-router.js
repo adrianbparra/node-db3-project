@@ -69,6 +69,7 @@ router.post('/:id/steps', (req, res) => {
       .then(step => {
         res.status(201).json(step);
       })
+      .catch(err => res.status(500).json({message: "Failed to create new step"}))
     } else {
       res.status(404).json({ message: 'Could not find scheme with given id.' })
     }
